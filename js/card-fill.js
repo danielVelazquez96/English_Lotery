@@ -13,27 +13,34 @@ let repeat=[];
 
 // Creacion del DOM
 let item=document.getElementById("card");
+let reloadButtom=document.getElementById(`reload-buttom`)
 
+const cardFill=()=>{
 
-// const cardFill=()=>{
+    item.innerHTML=""//limpiar el card
 
-// }
-for(let NItem=1; NItem<=Seccions; NItem++){
+    for(let NItem=1; NItem<=Seccions; NItem++){
    
 
-    do{
-        numberCard=Math.floor(Math.random()*56+1);
-
-    }while(repeat.find(N=>N==numberCard));//evitar  que se repita el numero
+        do{
+            numberCard=Math.floor(Math.random()*56+1);
     
-    repeat.push(numberCard);
-
-    // Anexo de template
-    item.innerHTML+=`<div class="item">
-                        <img src="/Images/${numberCard}.jpg" alt="img"/>
-                        <h2 >${names[numberCard]}</h2>
-                        <span>${numberCard}</span>
-                     </div>`;
+        }while(repeat.find(N=>N==numberCard));//evitar  que se repita el numero
+        
+        repeat.push(numberCard);
     
+        // Anexo de template
+        item.innerHTML+=`<div class="item">
+                            <img src="/Images/${numberCard}.jpg" alt="img"/>
+                            <h2 >${names[numberCard-1]}</h2>
+                            <span>${numberCard}</span>
+                         </div>`;
+        
+    }
+    repeat=[];
 }
-repeat=[];
+
+cardFill();
+
+
+reloadButtom.addEventListener('click',cardFill,true)
