@@ -15,7 +15,9 @@ let repeat=[];
 let item=document.getElementById("card");
 
 
+// const cardFill=()=>{
 
+// }
 for(let NItem=1; NItem<=Seccions; NItem++){
    
 
