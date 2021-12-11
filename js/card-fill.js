@@ -11,17 +11,13 @@ let numberCard;
 // array para almacenar las cartas ya usadas
 let repeat=[];
 
-// Creacion VARIABLES de DOM
-let itemImg;
-let itemTitle;
-let itemNumber;
+// Creacion del DOM
+let item=document.getElementById("card");
+
 
 
 for(let NItem=1; NItem<=Seccions; NItem++){
-    // Obtener DOM de item
-    itemImg=document.getElementById(`img-${NItem}`);
-    itemTitle=document.getElementById(`title-${NItem}`);
-    itemNumber=document.getElementById(`number-${NItem}`);
+   
 
     do{
         numberCard=Math.floor(Math.random()*56+1);
@@ -30,10 +26,12 @@ for(let NItem=1; NItem<=Seccions; NItem++){
     
     repeat.push(numberCard);
 
-    // Modificacion del DOM
-    itemImg.setAttribute("src",`/Images/${numberCard}.jpg`);
-    itemTitle.innerHTML=names[numberCard-1];
-    itemNumber.innerHTML=''+numberCard;
+    // Anexo de template
+    item.innerHTML+=`<div class="item">
+                        <img src="/Images/${numberCard}.jpg" alt="img"/>
+                        <h2 >${names[numberCard]}</h2>
+                        <span>${numberCard}</span>
+                     </div>`;
     
 }
 repeat=[];
